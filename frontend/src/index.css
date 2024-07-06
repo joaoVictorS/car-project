@@ -1,16 +1,9 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-default-white: #FFFFFF;
+  --color-default-gft: #156A62;
+  --color-table-header: #ECECEC;
+  --color-background: #EFF3FD;
+  --color-table-rows: #F0FFFC;
 }
 
 a {
@@ -23,12 +16,18 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: 'Poppins';
+  background:
+  radial-gradient(circle farthest-side at 0% 50%,#eff3fd 23.5%,#0000 0)33.6px 48px,
+  radial-gradient(circle farthest-side at 0% 50%,#ffffff 24%,#0000 0)30.4px 48px,
+  linear-gradient(#eff3fd 14%,#0000 0, #0000 85%,#eff3fd 0)0 0,
+  linear-gradient(150deg,#eff3fd 24%,#ffffff 0,#ffffff 26%,#0000 0,#0000 74%,#ffffff 0,#ffffff 76%,#eff3fd 0)0 0,
+  linear-gradient(30deg,#eff3fd 24%,#ffffff 0,#ffffff 26%,#0000 0,#0000 74%,#ffffff 0,#ffffff 76%,#eff3fd 0)0 0,
+  linear-gradient(90deg,#ffffff 2%,#eff3fd 0,#eff3fd 98%,#ffffff 0%)0 0 #eff3fd;
+background-size: 64px 96px;
+background-color: #eff3fd;
 }
+
 
 h1 {
   font-size: 3.2em;
