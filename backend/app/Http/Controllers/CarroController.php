@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Carro;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\QueryException;
-use Illuminate\Auth\AuthenticationException;
 
 class CarroController extends Controller
 {
@@ -45,22 +44,12 @@ class CarroController extends Controller
         try {
             $carro = Carro::create($request->all());
             return response()->json($carro, 201);
-        } catch (AuthenticationException $e) {
-          return response()->json([
-              'message' => 'Erro de autenticação. Por favor, faça login novamente.',
-              'error' => $e->getMessage()
-          ], 401);
-      } catch (QueryException $e) {
+        } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Erro ao tentar cadastrar o carro. Verifique os dados e tente novamente.',
                 'error' => $e->getMessage()
             ], 500);
-        } catch (\Exception $e) {
-          return response()->json([
-              'message' => 'Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.',
-              'error' => $e->getMessage()
-          ], 500);
-      }
+        }
     }
 
     // Atualizar um carro existente
