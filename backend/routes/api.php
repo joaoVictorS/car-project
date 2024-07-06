@@ -21,13 +21,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
 Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:api');
 
+Route::get('/carros', [CarroController::class, 'index']);
+Route::get('/carros/{id}', [CarroController::class, 'show']);
 
-Route::middleware(['auth:api', 'funcionario'])->group(function () {
-  Route::post('/empresas', [EmpresaController::class, 'store']);
+Route::middleware(['jwt.auth', 'funcionario'])->group(function () {
   Route::post('/carros', [CarroController::class, 'store']);
+  Route::put('/carros/{id}', [CarroController::class, 'update']);
+  Route::delete('/carros/{id}', [CarroController::class, 'destroy']);
+});
+
+Route::middleware(['jwt.auth', 'funcionario'])->group(function () {
+  Route::post('/empresas', [EmpresaController::class, 'store']);
 });
 

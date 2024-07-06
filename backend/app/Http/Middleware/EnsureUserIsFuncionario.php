@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class EnsureUserIsFuncionario
 {
     /**
+     * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -20,6 +21,6 @@ class EnsureUserIsFuncionario
             return $next($request);
         }
 
-        return response()->json(['message' => 'Acesso negado. Apenas funcionários podem cadastrar carros.'], 403);
+        return response()->json(['message' => 'Acesso negado. Apenas funcionários podem acessar esta rota.'], 403);
     }
 }
