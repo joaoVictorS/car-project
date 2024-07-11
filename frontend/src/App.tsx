@@ -1,12 +1,20 @@
-// src/App.jsx
-import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login';
+import Home from './Home';
+
+const PrivateRoute = ({ children }) => {
+  const token = localStorage.getItem('token');
+  return token ? children : <Navigate to="/login" />;
+};
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
 
