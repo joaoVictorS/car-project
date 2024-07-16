@@ -28,11 +28,11 @@ Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:ap
 Route::get('/carros', [CarroController::class, 'index']);
 Route::get('/carros/{id}', [CarroController::class, 'show']);
 
-Route::middleware(['jwt.auth', 'funcionario'])->group(function () {
+// Route::middleware(['jwt.auth', 'funcionario'])->group(function () {
   Route::post('/carros', [CarroController::class, 'store']);
   Route::put('/carros/{id}', [CarroController::class, 'update']);
   Route::delete('/carros/{id}', [CarroController::class, 'destroy']);
-});
+// });
 
 Route::middleware(['jwt.auth', 'funcionario'])->group(function () {
   Route::post('/empresas', [EmpresaController::class, 'store']);
