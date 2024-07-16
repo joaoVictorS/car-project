@@ -1,21 +1,19 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
 import Login from './components/Login';
-import Home from './Home';
-
-const PrivateRoute = ({ children }) => {
-  const token = localStorage.getItem('token');
-  return token ? children : <Navigate to="/login" />;
-};
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/home" element={<Home />} />
+          {/* Adicione mais rotas que utilizam o Layout conforme necessário */}
+        </Route>
       </Routes>
     </Router>
   );
 }
-
 export default App;
