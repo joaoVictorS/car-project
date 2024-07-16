@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <Header />
           <Box sx={{ display: 'flex', flexGrow: 1 }}>
             <Sidebar />
-            <Box component="main" sx={{ flexGrow: 1, p: 3, marginTop: '64px', marginLeft: '240px' }}>
+            <Box component="main" sx={{ flexGrow: 1, p: 3, marginTop: '40px' }}>
               {children}
             </Box>
           </Box>

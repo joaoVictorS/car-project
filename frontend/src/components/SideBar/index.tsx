@@ -14,8 +14,11 @@ const Sidebar = () => {
       }}
     >
       <List  sx={{ marginTop:10, marginLeft:2 }} >
-        <ListItem button component={Link} to="/">
+        <ListItem component={Link} to="/">
           <ListItemText primary="Home" />
+        </ListItem>
+        <ListItem component={Link} to="/Page2">
+          <ListItemText primary="Page2" />
         </ListItem>
         {/* Adicione mais itens de menu conforme necessário */}
       </List>
