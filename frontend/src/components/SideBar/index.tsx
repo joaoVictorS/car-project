@@ -14,7 +14,7 @@ const Sidebar = () => {
       }}
     >
       <List  sx={{ marginTop:10, marginLeft:2 }} >
-        <ListItem component={Link} to="/">
+        <ListItem component={Link} to="/Home">
           <ListItemText primary="Home" />
         </ListItem>
         <ListItem component={Link} to="/Page2">
